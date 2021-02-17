@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "build": "node ace build --production",
-    "start": "node server.js",
+    "start": "node server.ts",
     "dev": "node ace serve --watch",
+    "serve:dev": "nodemon --watch app --watch bootstrap --watch config --watch .env -x \"node --harmony_proxies\" server.js",
     "lint": "eslint . --ext=.ts",
     "format": "prettier --write ."
   },
@@ -24,7 +25,10 @@
   },
   "dependencies": {
     "@adonisjs/core": "^5.0.4-preview-rc",
+    "@adonisjs/lucid": "^10.0.0",
     "@adonisjs/repl": "^1.0.0",
+    "luxon": "^1.26.0",
+    "mysql": "^2.18.1",
     "proxy-addr": "^2.0.6",
     "reflect-metadata": "^0.1.13",
     "source-map-support": "^0.5.19"

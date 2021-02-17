@@ -21,5 +21,13 @@
 import Route from '@ioc:Adonis/Core/Route'
 
 Route.get('/', async () => {
-  return { hello: 'world' }
+  return {
+    id: 1,
+    username: 'virk',
+    email: 'virk@adonisjs.com',
+  }
+})
+
+Route.get('/about', async () => {
+  return 'About page'
 })
