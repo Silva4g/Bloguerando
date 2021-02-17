@@ -20,14 +20,6 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.get('/', async () => {
-  return {
-    id: 1,
-    username: 'virk',
-    email: 'virk@adonisjs.com',
-  }
-})
-
-Route.get('/about', async () => {
-  return 'About page'
+Route.get('/', async (ctx) => {
+  console.log(ctx.inspect())
 })
