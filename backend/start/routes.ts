@@ -20,6 +20,4 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.get('/', async (ctx) => {
-  console.log(ctx.inspect())
-})
+Route.get('/', 'UsersController.index')
