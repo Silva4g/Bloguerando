@@ -2,8 +2,8 @@ import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import User from 'app/Models/User'
 
 export default class UsersController {
-  public async show({ request }: HttpContextContract) {
-    const user = await User.all()
+  public async show({ params }: HttpContextContract) {
+    const user = await User.find(params.userId)
 
     return user
   }
@@ -14,5 +14,10 @@ export default class UsersController {
     const user = await User.create(data)
 
     return user
+  }
+
+  public async login({ request, auth }) {
+    const loginUser = request.only(['email', 'password'])
+    await auth.attempt(loginUser)
   }
 }

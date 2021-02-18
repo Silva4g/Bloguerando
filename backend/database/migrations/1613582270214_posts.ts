@@ -5,12 +5,14 @@ export default class Posts extends BaseSchema {
 
   public async up(): Promise<void> {
     this.schema.createTable(this.tableName, (table) => {
+      table.increments('id').primary()
+      table.string('title', 180).notNullable()
+      table.string('subtitle', 255).notNullable()
+      table.text('text').notNullable()
+      table.string('imageUrl').notNullable()
+      table.integer('user_id').unsigned().references('id').inTable('users').onDelete('CASCADE')
+      table.boolean('isActive').notNullable()
       table.timestamps(true)
-      table.increments('id')
-      table.integer('userId')
-      table.string('title')
-      table.string('subtitle')
-      table.text('text')
     })
   }
 

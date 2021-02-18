@@ -22,6 +22,9 @@ export default class User extends BaseModel {
   public password: string
 
   @column()
+  public isActive: boolean
+
+  @column()
   public profilepic: string
 
   @hasMany(() => Post)

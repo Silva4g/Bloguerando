@@ -12,6 +12,9 @@ export default class Post extends BaseModel {
   public updatedAt: DateTime
 
   @column()
+  public imageUrl: string
+
+  @column()
   public title: string
 
   @column()
