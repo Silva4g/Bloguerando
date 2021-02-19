@@ -1,5 +1,6 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column, HasMany, hasMany } from '@ioc:Adonis/Lucid/Orm'
+import Encryption from '@ioc:Adonis/Core/Encryption'
 import Post from './Post'
 
 export default class User extends BaseModel {
@@ -18,7 +19,9 @@ export default class User extends BaseModel {
   @column()
   public email: string
 
-  @column()
+  @column({
+    prepare: (value: string) => Encryption.encrypt(value),
+  })
   public password: string
 
   @column()

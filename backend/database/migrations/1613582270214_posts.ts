@@ -11,7 +11,7 @@ export default class Posts extends BaseSchema {
       table.text('text').notNullable()
       table.string('imageUrl').notNullable()
       table.integer('user_id').unsigned().references('id').inTable('users').onDelete('CASCADE')
-      table.boolean('isActive').notNullable()
+      table.boolean('isActive').notNullable().defaultTo(true)
       table.timestamps(true)
     })
   }
